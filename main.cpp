@@ -1,7 +1,13 @@
 #include <iostream>
+#include "Game.h"
 
-int main()
+int main(int argv, char** args)
 {
-    std::cout << "Hello, World!" << std::endl;
+    Game game;
+    bool success = game.Initialize();
+    if(success) {
+        game.RunLoop();
+    }
+    game.Shutdown();
     return 0;
 }
