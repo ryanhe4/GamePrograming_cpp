@@ -5,7 +5,18 @@
 #ifndef GAMEPROGRAMING_CPP_GAME_H
 #define GAMEPROGRAMING_CPP_GAME_H
 
+#include <vector>
 #include "SDL2/SDL.h"
+
+struct Vector2{
+  float x;
+  float y;
+};
+
+struct Ball {
+  Vector2 velocity;
+  Vector2 position;
+};
 
 class Game {
 public:
@@ -21,15 +32,18 @@ private:
 
     SDL_Window* window;
     SDL_Renderer* renderer;
-    bool is_running;
     Uint32 tick_count;
-    struct Vector2{
-      float x;
-      float y;
-    };
-    Vector2 ball_pos;
+    bool is_running;
+
+//    Vector2 ball_pos;
     Vector2 paddle_pos;
+    Vector2 paddle_pos2;
+//    Vector2 ball_vel;
+
+    std::vector<Ball> v_ball;
+
     int paddle_dir;
+    int paddle_dir2;
 };
 
 #endif //GAMEPROGRAMING_CPP_GAME_H
